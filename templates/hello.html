@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src = "{{ url_for('static', filename = 'hello.js')}}"></script>
+</head>
+<body>
+    <h1>Hello world</h1>
+    <input type = "button" onclick = "sayHello()" value = "Say Hello"/>
+    <script>
+    console.log("Hello world");
+    </script>
+</body>
+</html>
