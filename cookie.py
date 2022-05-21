@@ -9,17 +9,15 @@ def index():
 def setcookie():
     if request.method == 'POST':
         user = request.form['nm']
+        print(f"this is setting {user}")
         resp = make_response(render_template('readcookie.html'))
         resp.set_cookie('userID', user)
         return resp
 
 @app.route('/getcookie')
 def getcookie():
-    session = requests.Session()
-    #name = request.cookies.get("userID")
-    #return f"<h1>welcome {name} </h1>"
-    print(session)
-    return 'name'
+    name = request.cookies.get("userID")
+    return f"<h1>welcome {name} </h1>"
 
 if __name__=='__main__':
     app.run(debug = True)
