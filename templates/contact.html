@@ -6,7 +6,7 @@
 </head>
 <body>
     <h2 style = "text-align: center;">Contact Form</h2>
-    {% with messages = get_flasked_messages() %}
+    {% with messages = get_flashed_messages() %}
     {% if messages %}
     <ul>
         {% for message in messages %}

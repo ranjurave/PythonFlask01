@@ -1,16 +1,13 @@
 from flask_wtf import FlaskForm
-from flask_wtf import Form
-from wtforms import IntegerField, TextAreaField, SubmitField, RadioField, SelectField
-from wtforms.validators import ValidationError, DataRequired
-from wtforms import StringField
+from wtforms import StringField, IntegerField, TextAreaField, SubmitField, RadioField, SelectField
+from wtforms import validators, ValidationError
+from wtforms.validators import DataRequired
 
-class ContactForm(Form):
-    #name = TextField("Name of Student", [validators.Required("Please enter name ")])
-    #name = StringField(label='User Name: ', validators=[Length(min=2, max=30), DataRequired()])
-    name = StringField(u'Name of student :', [validators.Required("Please enter name ")])
-    Gender = RadioField('Gender', choices = [('M', 'Male'),('F', 'Female')])
+class ContactForm(FlaskForm):
+    name = StringField(label='User Name: ', validators = [DataRequired()])
+    Gender = RadioField('Gender', choices = [('M', 'Male'),('F', 'Female'),('O', 'Other')])
     Address = TextAreaField('Address')
-    email = TextField('Email',[validators.Required('Please enter email address'), validators.Email('Please enter email again')])
-    Age=IntegerField('age')
+    email = StringField(label = 'email')
+    Age = IntegerField('age')
     language=SelectField('Languages', choices=[('cpp', 'c++'), ('py', 'Python')])
     submit = SubmitField('Send')
