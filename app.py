@@ -9,10 +9,10 @@ db = SQLAlchemy(app)
 
 class students(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(length=100))
-    city = db.Column(db.String(length=50))
-    addr = db.Column(db.String(length=200))
-    pin = db.Column(db.String(length=10))
+    name = db.Column(db.String(100))
+    city = db.Column(db.String(50))
+    addr = db.Column(db.String(200))
+    pin = db.Column(db.String(10))
 
     def __init__(self, name, city, addr, pin):
         self.name = name
@@ -34,6 +34,7 @@ def new():
                                request.form['city'],
                                request.form['addr'],
                                request.form['pin'])
+            print(student.id)
             db.session.add(student)
             db.session.commit()
             flash('Record was successfully added')
